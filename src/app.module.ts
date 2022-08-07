@@ -1,4 +1,4 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { HttpModule, Module, OnModuleInit } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
@@ -8,8 +8,10 @@ import { SlackModule } from './modules/slack/slack.module';
 import { SlackService } from './modules/slack/slack.service';
 import { LoggerModule } from 'nestjs-rollbar';
 
+
 @Module({
   imports: [
+    HttpModule,
     ConfigModule.forRoot(),
     LoggerModule.forRoot({
       accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
@@ -26,7 +28,7 @@ import { LoggerModule } from 'nestjs-rollbar';
     ConfigService,
     SlackService,
     SlackService,
-  ],
+  ],  
 })
 export class AppModule {
 

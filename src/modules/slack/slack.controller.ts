@@ -3,6 +3,7 @@ import { ConfigService } from '../../shared/config.service';
 import { SlackService } from './slack.service';
 import { stringify } from 'querystring';
 
+import { NestApplication } from '@nestjs/core';
 @Controller('slack')
 export class SlackController {
 
